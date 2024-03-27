@@ -10,14 +10,6 @@ export const metadata: Metadata = {
   title: "BlockPetz",
   description:
     'This project is a showcase of the Metaplex "Core" capabilities. Here, you can mint, feed, and burn your BlockPetz.',
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://blockpetz.vercel.app",
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
 };
 
 export default function RootLayout({
