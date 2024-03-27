@@ -1,4 +1,4 @@
-import { BASE_URL, UPDATE_AUTHORITY } from "@/app/config";
+import { BASE_URL, EXP_PER_LEVEL, UPDATE_AUTHORITY } from "@/app/config";
 import { createPlugin, createV1, ruleSet } from "@metaplex-foundation/mpl-core";
 import {
   setComputeUnitLimit,
@@ -61,7 +61,7 @@ export const useHandleMint = () => {
                 type: "Attributes",
                 data: {
                   attributeList: [
-                    { key: "Exp", value: "500" },
+                    { key: "Exp", value: `${EXP_PER_LEVEL}` },
                     {
                       key: "Last Fed Time",
                       value: dateUnix,
