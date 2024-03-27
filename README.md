@@ -40,7 +40,7 @@ handle minting, burning, and feeding:
   [src/hooks/use-handle-mint.ts](https://github.com/sultanpeyek/blockpetz/blob/212d23c2ccd13e13273ed01d3e42c8158ed233ca/src/hooks/use-handle-mint.ts)
   is used to handle the minting of BlockPetz.
 - Fetching Assets: The `useAssetsByOwner` hook in
-  [src/hooks/use-handle-burn.ts](https://github.com/sultanpeyek/blockpetz/blob/212d23c2ccd13e13273ed01d3e42c8158ed233ca/src/hooks/use-assets-by-owner.ts)
+  [src/hooks/use-assets-by-owner.ts](https://github.com/sultanpeyek/blockpetz/blob/212d23c2ccd13e13273ed01d3e42c8158ed233ca/src/hooks/use-assets-by-owner.ts)
   is used to handle the fetching all BlockPetz that owned by a wallet.
 - Burning: The `useHandleBurn` hook in
   [src/hooks/use-handle-burn.ts](https://github.com/sultanpeyek/blockpetz/blob/212d23c2ccd13e13273ed01d3e42c8158ed233ca/src/hooks/use-handle-burn.ts)
