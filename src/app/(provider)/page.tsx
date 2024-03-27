@@ -1,6 +1,7 @@
 "use client";
 
 import { AssetCard } from "@/app/(provider)/components/asset-card";
+import { DELAY_BETWEEN_FEEDS, EXP_PER_FEED, EXP_PER_LEVEL } from "@/app/config";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -209,7 +210,11 @@ export default function Home() {
               size="lg"
               className="w-full"
             >
-              {mint.isPending ? "Minting..." : "Mint"}
+              {mint.isPending
+                ? "Minting..."
+                : wallet?.connected
+                  ? "Mint"
+                  : "Connect Wallet"}
             </Button>
           </CardFooter>
         </Card>
@@ -217,31 +222,33 @@ export default function Home() {
 
       {wallet?.connected && (
         <div className="container max-w-screen-lg space-y-6">
-          <Card className="min-h-[625px]">
+          <Card className="min-h-[765px]">
             <CardHeader>
               <CardTitle>Your BlockPetz</CardTitle>
               <CardDescription>
                 You can feed your BlockPetz to level them up. Each feeding will
-                add 100 EXP. Each time your BlockPetz gains 500 EXP, it will
-                level up. BlockPetz at levels 1, 2, and 3 above will have
-                different looks. You can also choose to burn your BlockPetz.
+                add {EXP_PER_FEED} EXP. Each time your BlockPetz gains{" "}
+                {EXP_PER_LEVEL} EXP, it will level up. You can feed your
+                BlockPetz every {DELAY_BETWEEN_FEEDS / 60} minutes. BlockPetz at
+                levels 1, 2, and 3 above will have different looks. You can also
+                choose to burn your BlockPetz.
               </CardDescription>
             </CardHeader>
             <CardContent>
               {assetsByOwnerIsFetching && (
-                <p className="text-center min-h-[625px] flex justify-center items-center">
+                <p className="text-center min-h-[765px] flex justify-center items-center">
                   Loading...
                 </p>
               )}
               {assetsByOwnerStatus === "error" && !assetsByOwnerIsFetching && (
-                <p className="text-center min-h-[625px] flex justify-center items-center">
+                <p className="text-center min-h-[765px] flex justify-center items-center">
                   Error: {assetsByOwnerError.message}
                 </p>
               )}
               {assetsByOwnerStatus === "success" &&
                 !assetsByOwnerIsFetching &&
                 (assetsByOwner?.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[625px]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[765px]">
                     {assetsByOwner.map((asset) => (
                       <AssetCard
                         key={asset.publicKey.toString()}
@@ -250,11 +257,19 @@ export default function Home() {
                         handleBurn={handleBurn}
                         feedIsPending={feed.isPending}
                         burnIsPending={burn.isPending}
+                        feedIsDisabled={
+                          feed.variables?.assetPublicKey ===
+                          asset.publicKey.toString()
+                        }
+                        burnIsDisabled={
+                          burn.variables?.assetPublicKey ===
+                          asset.publicKey.toString()
+                        }
                       />
                     ))}
                   </div>
                 ) : (
-                  <p className="text-center min-h-[625px] flex justify-center items-center">
+                  <p className="text-center min-h-[765px] flex justify-center items-center">
                     No BlockPetz found.
                   </p>
                 ))}

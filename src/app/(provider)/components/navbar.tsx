@@ -1,5 +1,6 @@
 "use client";
 
+import { REPO_URL } from "@/app/config";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -33,7 +34,9 @@ export const Navbar: React.FC = () => {
               className={navigationMenuTriggerStyle()}
               asChild
             >
-              <Link href="/">GitHub</Link>
+              <Link href={REPO_URL} target="_blank">
+                GitHub
+              </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem className="flex-auto">&nbsp;</NavigationMenuItem>

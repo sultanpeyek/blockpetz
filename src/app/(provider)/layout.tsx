@@ -13,7 +13,7 @@ export default function Layout({
   return (
     <ContextProvider>
       <Navbar />
-      <main className="flex min-h-[calc(100vh-140px)] sm:min-h-[calc(100vh-68px)] bg-muted flex-col items-center space-y-6 p-6">
+      <main className="flex min-h-[calc(100vh-140px)] sm:min-h-[calc(100vh-68px)] bg-muted flex-col items-center space-y-6 py-8">
         {children}
       </main>
       <Toaster />

@@ -1,9 +1,5 @@
 import type { AssetV1WithImage } from "@/app/types";
-import {
-  type AssetV1,
-  Key,
-  getAssetV1GpaBuilder,
-} from "@metaplex-foundation/mpl-core";
+import { Key, getAssetV1GpaBuilder } from "@metaplex-foundation/mpl-core";
 import { type Umi, publicKey } from "@metaplex-foundation/umi";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -43,8 +39,7 @@ export const useAssetsByOwner = (umi: Umi, ownerPublicKey: string) => {
       return sortedAssets;
     },
     enabled: !!umi && ownerPublicKey !== "",
-    refetchInterval: 1000 * 60, // 60 seconds
-    refetchIntervalInBackground: true,
+    refetchOnWindowFocus: false,
     retry: 3,
   });
 };
