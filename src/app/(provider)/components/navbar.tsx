@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
               className={navigationMenuTriggerStyle()}
               asChild
             >
-              <Link href="/docs">GitHub</Link>
+              <Link href="/">GitHub</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem className="flex-auto">&nbsp;</NavigationMenuItem>

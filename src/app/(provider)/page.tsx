@@ -193,7 +193,7 @@ export default function Home() {
               Please ensure your wallet's network is set to Devnet. You can fund
               your wallet with SOL from{" "}
               <Link
-                href="faucet.solana.com"
+                href="https://faucet.solana.com"
                 target="_blank"
                 className="underline hover:no-underline text-violet-500"
               >
