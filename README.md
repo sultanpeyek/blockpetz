@@ -17,6 +17,8 @@ steps:
 
 ```sh
 pnpm install
+# or
+npm install --legacy-peer-deps
 ```
 
 2. Copy the `.env.example` file to a new file named `.env.local` and fill in the
